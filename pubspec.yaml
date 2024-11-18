@@ -1,0 +1,65 @@
+name: segarku
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+#------------------- PACKAGES -------------------# 
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Utillity Package
+  http: ^1.1.0
+  intl: ^0.18.1
+  logger: ^2.0.1
+  url_launcher: ^6.1.12
+  
+  # Icons
+  iconsax: ^0.0.8
+  cupertino_icons: ^1.0.8
+  flutter_launcher_icons: ^0.12.0
+  smooth_page_indicator: ^1.2.0+3
+
+  # State Management
+  get: ^4.6.5
+  get_storage: ^2.1.1
+  # Product Specific
+
+#------------------- ./ PACKAGES END -------------------# 
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: assets/logos/Newlogo.png
+  min_sdk_android: 16
+
+flutter:
+
+  uses-material-design: true
+  #------------------- LOCAL ASSETS -------------------# 
+  assets:
+  - assets/fonts/
+  - assets/icons/
+  - assets/images/
+  - assets/images/onboarding/
+  - assets/logos/
+
+#------------------- LOCAL FONTS -------------------# 
+  fonts:
+    - family: Axiforma
+      fonts:
+        - asset: assets/fonts/Axiforma-Regular.ttf
+        - asset: assets/fonts/Axiforma-SemiBold.ttf
+        - asset: assets/fonts/Axiforma-Bold.ttf
