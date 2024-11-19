@@ -34,7 +34,7 @@ class STexts {
   static const String newPassword = "Password Baru";
   static const String userName = "Nama Pengguna";
   static const String phoneNumber = "Nomor Telepon";
-  static const String rememberMe = "Ingat Saya";
+  static const String rememberMe = "Ingatkan Saya";
   static const String forgetPassword = "Lupa Password?";
   static const String signIn = "Login";
   static const String createAccount = "Buat Akun";
