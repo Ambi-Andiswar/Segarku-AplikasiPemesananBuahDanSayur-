@@ -34,9 +34,7 @@ class OnboardingDotNavigation extends StatelessWidget {
           dotDecoration: DotDecoration(
             width: 6, // Lebar dot lainnya
             height: 6, // Tinggi dot lainnya
-            color: dark
-                ? SColors.light.withOpacity(0.3)
-                : SColors.green800.withOpacity(0.3),
+            color: dark ? SColors.light.withOpacity(0.3) : SColors.green300,
             borderRadius: BorderRadius.circular(4),
           ),
           spacing: 6, // Jarak antar dot

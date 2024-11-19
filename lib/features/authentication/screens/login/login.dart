@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:segarku/common/spacing_style.dart';
 import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/size.dart';
-import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/onboarding/onboarding.dart';
@@ -22,25 +21,26 @@ class LoginScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.only(left: SSizes.defaultSpace),
           child: CircleAvatar(
-            backgroundColor: dark
-                ? SColors.blackSoap100.withOpacity(0.3)
-                : SColors.grey.withOpacity(0.3),
+            radius: 50,
+            backgroundColor: dark ? Colors.black : SColors.primary,
             child: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              iconSize: 25,
               onPressed: () => Get.offAll(() => const OnBoardingScreen(),
                   transition: Transition.rightToLeft,
                   duration: const Duration(milliseconds: 500)),
-              icon: Icon(
-                Iconsax.arrow_left_1,
-                color: dark ? SColors.light : SColors.dark,
-              ),
+              icon: const Icon(Icons.arrow_back, color: SColors.white),
             ),
           ),
         ),
-        actions: [],
+        actions: const [],
         centerTitle: true,
         title: Text(
-          'Login',
-          style: Theme.of(context).textTheme.titleLarge,
+          'Masuk',
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
         ),
       ),
       body: SingleChildScrollView(
@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(STexts.loginTitle,
-                      style: Theme.of(context).textTheme.headlineLarge),
+                      style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: SSizes.borderRadiusSm),
                   Padding(
                     padding:
@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                     child: Text(STexts.loginSubTitle,
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
                             color:
-                                dark ? SColors.white : SColors.blackSoap500)),
+                                dark ? SColors.white : SColors.blackSoap400)),
                   ),
                   const SizedBox(height: SSizes.spaceBtwSections2),
                 ],
@@ -150,11 +150,11 @@ class LoginScreen extends StatelessWidget {
                               borderSide:
                                   const BorderSide(color: SColors.primary),
                             ),
-                            suffixIcon: const Icon(Iconsax.eye_slash)),
+                            suffixIcon: const Icon(Icons.visibility_off)),
                       ),
                       const SizedBox(height: SSizes.spaceBtwInputFields / 2),
 
-                      // Remember Me & Forget Password
+                      // Forget Password
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -191,6 +191,34 @@ class LoginScreen extends StatelessWidget {
                                         fontWeight: FontWeight.normal,
                                         color: SColors.white),
                               ))),
+                      const SizedBox(height: SSizes.spaceBtwItems),
+
+                      // Register Now
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("${STexts.registerNowSubTitle} ",
+                              style: Theme.of(context).textTheme.labelSmall),
+                          TextButton(
+                            onPressed: () => Get.to(() => const SignUpScreen()),
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              minimumSize: Size.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                            child: Text(
+                              STexts.registerNow,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelSmall
+                                  ?.copyWith(
+                                    color: SColors.green600,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: SSizes.spaceBtwItems2),
                     ],
                   ),
@@ -250,27 +278,6 @@ class LoginScreen extends StatelessWidget {
                         height: SSizes.iconXl,
                         image: AssetImage(SImages.google),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: SSizes.spaceBtwSections2),
-
-              // Register Now
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(STexts.registerNowSubTitle,
-                      style: Theme.of(context).textTheme.labelSmall),
-                  TextButton(
-                    onPressed: () => Get.to(() => const SignUpScreen()),
-                    child: Text(
-                      STexts.registerNow,
-                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                            color: SColors.green600,
-                            fontWeight: FontWeight.w600,
-                          ),
                     ),
                   ),
                 ],

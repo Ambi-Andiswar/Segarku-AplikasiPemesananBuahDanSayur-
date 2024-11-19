@@ -35,7 +35,7 @@ class SSizes {
   static const double spaceBtwItems2 = 24.0;
   static const double spaceBtwSections = 8.0;
   static const double spaceBtwSections1 = 50.0;
-  static const double spaceBtwSections2 = 40.0;
+  static const double spaceBtwSections2 = 32.0;
 
   // Border radius
   static const double borderRadiusSm = 4.0;
@@ -53,6 +53,7 @@ class SSizes {
   // Input field
   static const double inputFieldRadius = 8.0;
   static const double spaceBtwInputFields = 16.0;
+  static const double spaceBtwInputFields2 = 24.0;
 
   // Card Sixes
   static const double cardRadiusLg = 16.0;
