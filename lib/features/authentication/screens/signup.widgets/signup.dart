@@ -5,7 +5,9 @@ import 'package:segarku/utils/constants/size.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/login/login.dart';
+import 'package:segarku/features/authentication/screens/signup.widgets/verify_email.dart';
 import 'package:get/get.dart';
+import 'package:flutter/gestures.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -25,9 +27,7 @@ class SignUpScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
               iconSize: 25,
-              onPressed: () => Get.offAll(() => const LoginScreen(),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500)),
+              onPressed: () => Get.offAll(() => const LoginScreen()),
               icon: const Icon(Icons.arrow_back, color: SColors.white),
             ),
           ),
@@ -223,7 +223,8 @@ class SignUpScreen extends StatelessWidget {
                       SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () =>
+                                  Get.to(() => const VerifyEmailScreen()),
                               child: Text(
                                 STexts.register,
                                 style: Theme.of(context)
@@ -233,7 +234,52 @@ class SignUpScreen extends StatelessWidget {
                                         fontWeight: FontWeight.normal,
                                         color: SColors.white),
                               ))),
-                      const SizedBox(height: SSizes.spaceBtwItems),
+                      // Tambahkan Terms & Conditions Text
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            text: '${STexts.agreeToLogin} ',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: SColors.blackSoap400,
+                                ),
+                            children: [
+                              TextSpan(
+                                text: STexts.agreeToTerms,
+                                style: const TextStyle(
+                                  color: SColors.green500,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Tambahkan aksi ketika Terms & Conditions diklik
+                                  },
+                              ),
+                              const TextSpan(
+                                text: ' ${STexts.and} ',
+                                style: TextStyle(color: SColors.blackSoap400),
+                              ),
+                              TextSpan(
+                                text: STexts.privacyPolicy,
+                                style: const TextStyle(
+                                  color: SColors.green500,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Tambahkan aksi ketika Privacy Policy diklik
+                                  },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

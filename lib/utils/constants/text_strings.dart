@@ -2,7 +2,7 @@ class STexts {
   // Global Texts
   static const String submit = "submit";
   static const String appName = "Segarku";
-  static const String TContiniue = "Continue";
+  static const String continiue = "Selanjutnya";
 
   // Onboarding Texts
   static const String onBoardingTitele1 =
@@ -43,9 +43,10 @@ class STexts {
   static const String createAccount = "Buat Akun";
   static const String orSignInWith = "Atau masuk dengan";
   static const String orSignUpWith = "Atau buat akun dengan";
-  static const String iAgreeTo = "Saya setuju dengan";
-  static const String privacyPolicy = "kebijakan privasi";
-  static const String termsOfService = "ketentuan layanan";
+  static const String agreeToLogin = "Dengan Masuk, Anda Menyetujui";
+  static const String agreeToTerms = "Syarat dan Ketentuan";
+  static const String privacyPolicy = "kebijakan Privasi Kami";
+  static const String and = "serta";
   static const String verificationCode = "Kode Verifikasi";
   static const String resendEmail = "Kirim Ulang Email";
   static const String resendEmailIn = "Kirim Ulang Email dalam";
@@ -66,6 +67,12 @@ class STexts {
   static const String confirmEmailTitle = "Konfirmasi Email Anda";
   static const String confirmEmailSubTitle =
       "Silahkan cek email Anda untuk melakukan verifikasi";
+  static const String verifyEmailTitle = "Verifikasi Email Anda";
+  static const String verifyEmailSubTitle =
+      "Terima Kasih Telah Mendaftar! Untuk melanjutkan proses pendaftaran dan menikmati sayuran dan buahan segar, silakan verifikasi alamat email Anda";
+  static const String successVerifyEmail = "Akun Anda Telah Dibuat";
+  static const String successVerifyEmailSubTitle =
+      "Selamat Datang di SegarKu, Silahkan masuk untuk berbelanja buah dan sayur segar";
   static const String emailNotReceivedTitle =
       "Tidak menerima email? cek kembali email Anda";
   static const String yourAccountIsReadyTitle = "Akun Anda Siap!";

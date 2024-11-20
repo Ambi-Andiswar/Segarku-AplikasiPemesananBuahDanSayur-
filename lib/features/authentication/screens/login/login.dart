@@ -6,7 +6,7 @@ import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:get/get.dart';
-import 'package:segarku/utils/constants/image_strings.dart';
+import 'package:flutter/gestures.dart';
 import 'package:segarku/features/authentication/screens/signup.widgets/signup.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -27,9 +27,7 @@ class LoginScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
               iconSize: 25,
-              onPressed: () => Get.offAll(() => const OnBoardingScreen(),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500)),
+              onPressed: () => Get.offAll(() => const OnBoardingScreen()),
               icon: const Icon(Icons.arrow_back, color: SColors.white),
             ),
           ),
@@ -193,7 +191,7 @@ class LoginScreen extends StatelessWidget {
                               ))),
                       const SizedBox(height: SSizes.spaceBtwItems),
 
-                      // Register Now
+                      // Masuk
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -249,38 +247,40 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: SSizes.spaceBtwItems),
 
-              /// Social Media Login
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: SColors.grey),
-                        borderRadius: BorderRadius.circular(100)),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Image(
-                        width: SSizes.iconXl,
-                        height: SSizes.iconXl,
-                        image: AssetImage(SImages.facebook),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: '${STexts.agreeToLogin} ',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: SColors.blackSoap400,
+                        ),
+                    children: [
+                      TextSpan(
+                        text: STexts.agreeToTerms,
+                        style: const TextStyle(color: SColors.green500),
+                        recognizer: TapGestureRecognizer()..onTap = () {},
                       ),
-                    ),
-                  ),
-                  const SizedBox(width: SSizes.spaceBtwSections),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: SColors.grey),
-                        borderRadius: BorderRadius.circular(100)),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Image(
-                        width: SSizes.iconXl,
-                        height: SSizes.iconXl,
-                        image: AssetImage(SImages.google),
+                      const TextSpan(
+                        text: ' ${STexts.and} ',
+                        style: TextStyle(color: SColors.blackSoap400),
                       ),
-                    ),
+                      TextSpan(
+                        text: STexts.privacyPolicy,
+                        style: const TextStyle(
+                          color: SColors.green500,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            // Tambahkan aksi ketika Privacy Policy diklik
+                          },
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ],
           ),
