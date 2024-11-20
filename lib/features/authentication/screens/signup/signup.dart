@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:segarku/common/spacing_style.dart';
+import 'package:segarku/common/styles/spacing_style.dart';
 import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/size.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/login/login.dart';
-import 'package:segarku/features/authentication/screens/signup.widgets/verify_email.dart';
+import 'package:segarku/features/authentication/screens/signup/verify_email.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
 

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:segarku/common/widgets/success_screen/success_screen.dart';
 import 'package:segarku/utils/constants/size.dart';
 import 'package:get/get.dart';
 import 'package:segarku/features/authentication/screens/login/login.dart';
-import 'package:segarku/features/authentication/screens/signup.widgets/signup.dart';
+import 'package:segarku/features/authentication/screens/signup/signup.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/common/styles/spacing_style.dart';
 
-class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class VerifyEmailScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          'Verifikasi',
+          'Verifikasi Email',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -55,19 +54,14 @@ class VerifyEmailScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Title
-                  Text(STexts.verifyEmailTitle,
+                  Text(STexts.verifyEmail,
                       style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: SSizes.borderRadiusSm),
 
                   // Subtitle
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(right: SSizes.spaceBtwSections2),
-                    child: Text(STexts.verifyEmailSubTitle,
-                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                            color:
-                                dark ? SColors.white : SColors.blackSoap400)),
-                  ),
+                  Text(STexts.verifyEmailSub,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: dark ? SColors.white : SColors.blackSoap400)),
                   const SizedBox(height: SSizes.spaceBtwInputFields2),
 
                   //  Email
@@ -85,7 +79,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => const SuccessScreen()),
+                      onPressed: () => Get.to(() => const LoginScreen()),
                       child: Text(
                         STexts.continiue,
                         style: Theme.of(context)
@@ -94,20 +88,6 @@ class VerifyEmailScreen extends StatelessWidget {
                             ?.copyWith(
                                 fontWeight: FontWeight.normal,
                                 color: SColors.white),
-                      ))),
-
-              SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
-                      onPressed: () => Get.to(() => ()),
-                      child: Text(
-                        STexts.resendEmail,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(
-                                fontWeight: FontWeight.normal,
-                                color: SColors.green500),
                       ))),
             ],
           ),

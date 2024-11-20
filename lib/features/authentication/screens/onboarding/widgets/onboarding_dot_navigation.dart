@@ -5,7 +5,7 @@ import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/size.dart';
 import '../../../../../../utils/device/device.dart';
 import '../../../../../../utils/helpers/helper_functions.dart';
-import '../../../controllers.onboarding/onboarding_controller.dart';
+import '../../../controllers/onboarding_controller.dart';
 
 class OnboardingDotNavigation extends StatelessWidget {
   const OnboardingDotNavigation({

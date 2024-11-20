@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:segarku/common/spacing_style.dart';
+import 'package:segarku/common/styles/spacing_style.dart';
 import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/size.dart';
 import '../../../../../utils/constants/text_strings.dart';
@@ -7,7 +7,8 @@ import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
-import 'package:segarku/features/authentication/screens/signup.widgets/signup.dart';
+import 'package:segarku/features/authentication/screens/signup/signup.dart';
+import 'package:segarku/features/authentication/screens/password_configuration/forget_password.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -158,7 +159,8 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           // Forget Password
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () =>
+                                  Get.to(() => const ForgetPasswordScreen()),
                               child: Text(
                                 STexts.forgetPassword,
                                 style: Theme.of(context)

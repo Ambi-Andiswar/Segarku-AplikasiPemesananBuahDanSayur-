@@ -50,7 +50,10 @@ class STexts {
   static const String verificationCode = "Kode Verifikasi";
   static const String resendEmail = "Kirim Ulang Email";
   static const String resendEmailIn = "Kirim Ulang Email dalam";
-
+  static const String sendCode = "Kirim Kode";
+  static const String verifyEmail = "Cek Email Anda";
+  static const String verifyEmailSub =
+      "Kami telah mengirimkan tautan untuk reset kata sandi Jangan lupa untuk memeriksa kotak masuk atau folder spam anda. Email telah kami kirim ke :";
   // Login
   static const String loginTitle = "Hallo, Selamat datang 👋";
   static const String loginSubTitle =
@@ -58,9 +61,9 @@ class STexts {
   static const String signUpTitle = "Buat Akun SegarKu";
   static const String signUpSubTitle =
       "Daftar untuk akses mudah ke buah dan sayur berkualitas dari SegarKu";
-  static const String forgetPasswordTitle = "Lupa Password?";
+  static const String forgetPasswordTitle = "Lupa Kata Sandi?";
   static const String forgetPasswordSubTitle =
-      "Jangan khawatir! Kami akan mengirimkan instruksi untuk mengatur ulang password Anda.";
+      "Masukan email terdaftar Anda dan kami akan mengirimkan tautan untuk reset kata sandi. Pastikan email yang Anda masukkan benar.";
   static const String changeYourPasswordTitle = "Ubah Password";
   static const String changeYourPasswordSubTitle =
       "Silahkan masukkan password baru Anda";

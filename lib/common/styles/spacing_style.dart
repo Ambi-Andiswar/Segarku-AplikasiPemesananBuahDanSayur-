@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../utils/constants/size.dart';
+import '../../../utils/constants/size.dart';
 
 class SSpacingStyle {
   static const EdgeInsetsGeometry paddingWithAppBarHeight = EdgeInsets.only(

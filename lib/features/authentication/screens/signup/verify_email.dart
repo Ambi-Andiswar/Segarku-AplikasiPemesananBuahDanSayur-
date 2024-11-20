@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:segarku/common/widgets/success_screen/success_screen.dart';
 import 'package:segarku/utils/constants/size.dart';
 import 'package:get/get.dart';
 import 'package:segarku/features/authentication/screens/login/login.dart';
-import 'package:segarku/features/authentication/screens/signup/verify_email.dart';
+import 'package:segarku/features/authentication/screens/signup/signup.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/common/styles/spacing_style.dart';
 
-class SuccessScreen extends StatelessWidget {
-  const SuccessScreen({super.key});
+class VerifyEmailScreen extends StatelessWidget {
+  const VerifyEmailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class SuccessScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
               iconSize: 25,
-              onPressed: () => Get.offAll(() => const VerifyEmailScreen(),
+              onPressed: () => Get.offAll(() => const SignUpScreen(),
                   duration: const Duration(milliseconds: 500)),
               icon: const Icon(Icons.arrow_back, color: SColors.white),
             ),
@@ -54,7 +55,7 @@ class SuccessScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Title
-                  Text(STexts.successVerifyEmail,
+                  Text(STexts.verifyEmailTitle,
                       style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: SSizes.borderRadiusSm),
 
@@ -62,11 +63,19 @@ class SuccessScreen extends StatelessWidget {
                   Padding(
                     padding:
                         const EdgeInsets.only(right: SSizes.spaceBtwSections2),
-                    child: Text(STexts.successVerifyEmailSubTitle,
-                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    child: Text(STexts.verifyEmailSubTitle,
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             color:
                                 dark ? SColors.white : SColors.blackSoap400)),
                   ),
+                  const SizedBox(height: SSizes.spaceBtwInputFields2),
+
+                  //  Email
+                  Text('segarkuId@gmail.com',
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: dark ? SColors.white : SColors.blackSoap500,
+                          )),
                   const SizedBox(height: SSizes.spaceBtwSections2),
                 ],
               ),
@@ -75,7 +84,7 @@ class SuccessScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => const LoginScreen()),
+                      onPressed: () => Get.to(() => const SuccessScreen()),
                       child: Text(
                         STexts.continiue,
                         style: Theme.of(context)
@@ -84,6 +93,20 @@ class SuccessScreen extends StatelessWidget {
                             ?.copyWith(
                                 fontWeight: FontWeight.normal,
                                 color: SColors.white),
+                      ))),
+
+              SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                      onPressed: () => Get.to(() => ()),
+                      child: Text(
+                        STexts.resendEmail,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(
+                                fontWeight: FontWeight.normal,
+                                color: SColors.green500),
                       ))),
             ],
           ),
