@@ -4,7 +4,7 @@ import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/size.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/utils/constants/colors.dart';
-import 'package:segarku/features/authentication/screens/login/login.dart';
+import 'package:segarku/features/authentication/screens/welcome/welcome.dart';
 import 'package:segarku/features/authentication/screens/signup/verify_email.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
@@ -27,7 +27,7 @@ class SignUpScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
               iconSize: 25,
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => Get.offAll(() => const WelcomeScreen()),
               icon: const Icon(Icons.arrow_back, color: SColors.white),
             ),
           ),

@@ -21,7 +21,7 @@ class OnboardingDotNavigation extends StatelessWidget {
       bottom: SDeviceUtils.getBottomNavigationBarHeight() + 25,
       left: SSizes.defaultSpace,
       child: SmoothPageIndicator(
-        count: 3,
+        count: 2,
         controller: controller.pageController,
         onDotClicked: controller.dotNavigationClick,
         effect: CustomizableEffect(
