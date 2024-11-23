@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
 import 'package:segarku/features/authentication/screens/signup/signup.dart';
 import 'package:segarku/features/authentication/screens/password_configuration/forget_password.dart';
+import 'package:segarku/navigation_menu.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -181,7 +182,8 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () =>
+                                  Get.to(() => const NavigationMenu()),
                               child: Text(
                                 STexts.signIn,
                                 style: Theme.of(context)
