@@ -3,13 +3,14 @@ import 'package:segarku/common/styles/spacing_style.dart';
 import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/size.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import 'package:flutter/gestures.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/welcome/welcome.dart';
 import 'package:get/get.dart';
-import 'package:flutter/gestures.dart';
 import 'package:segarku/features/authentication/screens/signup/signup.dart';
 import 'package:segarku/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:segarku/navigation_menu.dart';
+import 'package:iconsax/iconsax.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -19,49 +20,67 @@ class LoginScreen extends StatelessWidget {
     final dark = SHelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: SSizes.defaultSpace),
-          child: CircleAvatar(
-            radius: 50,
-            backgroundColor: dark ? Colors.black : SColors.primary,
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              iconSize: 25,
-              onPressed: () => Get.offAll(() => const WelcomeScreen()),
-              icon: const Icon(Icons.arrow_back, color: SColors.white),
-            ),
-          ),
-        ),
-        actions: const [],
-        centerTitle: true,
-        title: Text(
-          'Masuk',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: SSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             children: [
-              // Title & Subtitle
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Back button and "Masuk" text
+                  Row(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          color: dark ? Colors.black : SColors.white,
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: SColors.blackSoap300,
+                            width: 1,
+                          ),
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            Get.to(() => const WelcomeScreen());
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            size: 16,
+                            color: dark ? SColors.white : SColors.blackSoap500,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          STexts.login,
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: SSizes.spaceBtwSections2),
+
+                  // Title and Subtitle
                   Text(STexts.loginTitle,
                       style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: SSizes.borderRadiusSm),
                   Padding(
                     padding:
                         const EdgeInsets.only(right: SSizes.spaceBtwSections1),
-                    child: Text(STexts.loginSubTitle,
-                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                            color:
-                                dark ? SColors.white : SColors.blackSoap400)),
+                    child: Text(
+                      STexts.loginSubTitle,
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: dark ? SColors.white : SColors.blackSoap400,
+                          ),
+                    ),
                   ),
                   const SizedBox(height: SSizes.spaceBtwSections2),
                 ],
@@ -112,7 +131,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: SSizes.spaceBtwInputFields),
+                      const SizedBox(height: SSizes.spaceBtwItems2),
 
                       // Password Field
                       Align(
@@ -150,15 +169,17 @@ class LoginScreen extends StatelessWidget {
                               borderSide:
                                   const BorderSide(color: SColors.primary),
                             ),
-                            suffixIcon: const Icon(Icons.visibility_off)),
+                            suffixIcon: Icon(Iconsax.eye_slash,
+                                color: dark
+                                    ? SColors.white
+                                    : SColors.blackSoap600)),
                       ),
-                      const SizedBox(height: SSizes.spaceBtwInputFields / 2),
+                      const SizedBox(height: SSizes.spaceBtwInputFields),
 
                       // Forget Password
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // Forget Password
                           TextButton(
                               onPressed: () =>
                                   Get.to(() => const ForgetPasswordScreen()),
@@ -176,7 +197,7 @@ class LoginScreen extends StatelessWidget {
                               ))
                         ],
                       ),
-                      const SizedBox(height: SSizes.spaceBtwSections),
+                      const SizedBox(height: SSizes.spaceBtwInputFields),
 
                       // Sign In Button
                       SizedBox(
@@ -195,7 +216,7 @@ class LoginScreen extends StatelessWidget {
                               ))),
                       const SizedBox(height: SSizes.spaceBtwItems),
 
-                      // Masuk
+                      // Daftar sekarang
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -251,7 +272,52 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: SSizes.spaceBtwItems),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+              // Social Media Login
+              // Google Login Button
+              SizedBox(
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Tambahkan aksi untuk login dengan Google
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: dark ? Colors.black : SColors.white,
+                    side: BorderSide(
+                      color: dark ? SColors.blackSoap300 : SColors.grey,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(SSizes.inputFieldRadius),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Google Logo
+                      Image.asset(
+                        'assets/logos/google.png',
+                        height: 24,
+                        width: 24,
+                      ),
+                      const SizedBox(width: 12),
+                      // Button Text
+                      Text(
+                        "Masuk dengan Google",
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400, // Regular
+                              color:
+                                  dark ? SColors.white : SColors.blackSoap500,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: SSizes.spaceBtwItems),
+
+              // Agree to Login
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
 
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),

@@ -31,23 +31,23 @@ class SColors {
   static const Color blackSoap900 = Color(0xFF0A1F1C);
 
   // Accent Colors
-  static const Color Success100 = Color(0xFF3F845F);
-  static const Color Success80 = Color(0xFF659D7F);
-  static const Color Success60 = Color(0xFF8CB59F);
-  static const Color Success40 = Color(0xFFB2CEBF);
-  static const Color Success20 = Color(0xFFD9E6DF);
+  static const Color success100 = Color(0xFF3F845F);
+  static const Color success80 = Color(0xFF659D7F);
+  static const Color success60 = Color(0xFF8CB59F);
+  static const Color success40 = Color(0xFFB2CEBF);
+  static const Color success20 = Color(0xFFD9E6DF);
 
-  static const Color Warning100 = Color(0xFFE4C65B);
-  static const Color Warning80 = Color(0xFFE9D17C);
-  static const Color Warning60 = Color(0xFFEFDD9D);
-  static const Color Warning40 = Color(0xFFF4E8BD);
-  static const Color Warning20 = Color(0xFFFAF4DE);
+  static const Color warning100 = Color(0xFFE4C65B);
+  static const Color warning80 = Color(0xFFE9D17C);
+  static const Color warning60 = Color(0xFFEFDD9D);
+  static const Color warning40 = Color(0xFFF4E8BD);
+  static const Color warning20 = Color(0xFFFAF4DE);
 
-  static const Color Error100 = Color(0xFFE25C5C);
-  static const Color Error80 = Color(0xFFE87D7D);
-  static const Color Error60 = Color(0xFFEE9D9D);
-  static const Color Error40 = Color(0xFFF3BEBE);
-  static const Color Error20 = Color(0xFFFF9DEDE);
+  static const Color error100 = Color(0xFFE25C5C);
+  static const Color error80 = Color(0xFFE87D7D);
+  static const Color error60 = Color(0xFFEE9D9D);
+  static const Color error40 = Color(0xFFF3BEBE);
+  static const Color error20 = Color(0xFFF9DEDE);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF333333);

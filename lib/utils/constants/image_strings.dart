@@ -12,6 +12,7 @@ class SImages {
       "assets/images/onboarding/onboarding1.png";
   static const String onBoardingImage2 =
       "assets/images/onboarding/onboarding2.png";
-  static const String onBoardingImage3 =
-      "assets/images/onboarding/onboarding3.png";
+
+  // Welcome Image
+  static const String welcomeImage = "assets/images/onboarding/onboarding3.png";
 }

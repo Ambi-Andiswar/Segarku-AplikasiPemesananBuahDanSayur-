@@ -19,9 +19,9 @@ class OnboardingDotNavigation extends StatelessWidget {
 
     return Positioned(
       bottom: SDeviceUtils.getBottomNavigationBarHeight() + 25,
-      left: SSizes.defaultSpace,
+      left: SSizes.defaultSpaceDot,
       child: SmoothPageIndicator(
-        count: 2,
+        count: 2, // Jumlah dot
         controller: controller.pageController,
         onDotClicked: controller.dotNavigationClick,
         effect: CustomizableEffect(
@@ -29,7 +29,7 @@ class OnboardingDotNavigation extends StatelessWidget {
             width: 31, // Lebar dot aktif
             height: 6, // Tinggi dot aktif
             color: dark ? SColors.green100 : SColors.green800,
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(10),
           ),
           dotDecoration: DotDecoration(
             width: 6, // Lebar dot lainnya
@@ -37,7 +37,7 @@ class OnboardingDotNavigation extends StatelessWidget {
             color: dark ? SColors.light.withOpacity(0.3) : SColors.green300,
             borderRadius: BorderRadius.circular(4),
           ),
-          spacing: 6, // Jarak antar dot
+          spacing: 5, // Jarak antar dot
         ),
       ),
     );

@@ -27,9 +27,13 @@ class OnBoardingPage extends StatelessWidget {
         ),
         // Bagian Teks
         Expanded(
-          flex: 2, // Mengatur proporsi tinggi teks
+          flex: 2,
           child: Padding(
-            padding: const EdgeInsets.all(SSizes.iconLg),
+            padding: const EdgeInsets.only(
+              top: SSizes.titleSpaceTop, // Jarak dari gambar ke title
+              left: SSizes.titleSpaceLeftRight, // Jarak dari kiri
+              right: SSizes.titleSpaceLeftRight, // Jarak dari kanan
+            ),
             child: Column(
               children: [
                 Text(title,

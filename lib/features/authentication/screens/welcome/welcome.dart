@@ -25,20 +25,21 @@ class WelcomeScreen extends StatelessWidget {
             onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
-                image: SImages.onBoardingImage3,
-                title: STexts.onBoardingTitele3,
-                subTitle: STexts.onBoardingSubTitele3,
+                image: SImages.welcomeImage,
+                title: STexts.welcomeTitle,
+                subTitle: STexts.welcomeSubTitle,
               ),
             ],
           ),
 
           // Buttons
           Positioned(
-            bottom: 90,
+            bottom: 82,
             left: 20,
             right: 20,
             child: Row(
               children: [
+                // Login Button
                 Expanded(
                   child: SizedBox(
                     width: 160,
@@ -46,24 +47,25 @@ class WelcomeScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () => Get.offAll(() => const LoginScreen()),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
+                        backgroundColor: SColors.green600,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      child: const Text(
-                        'Masuk',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
+                      child: Text(
+                        STexts.login,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: Colors.white,
+                            ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(width: 16),
+
+                // Sign Up Button
                 Expanded(
                   child: SizedBox(
                     width: 160,
@@ -78,16 +80,15 @@ class WelcomeScreen extends StatelessWidget {
                                 : Colors.white, // Warna untuk light mode
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      child: const Text(
-                        'Daftar',
-                        style: TextStyle(
-                          color: SColors.green600,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
+                      child: Text(
+                        STexts.signUp,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: SColors.green600,
+                            ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),

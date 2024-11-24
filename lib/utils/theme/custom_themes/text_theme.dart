@@ -28,8 +28,7 @@ class STextTheme {
         fontSize: 14.0,
         fontWeight: FontWeight.w500,
         color: Colors.black.withOpacity(0.5)),
-    labelSmall: const TextStyle()
-        .copyWith(fontSize: 14.0, fontWeight: FontWeight.normal),
+    labelSmall: const TextStyle().copyWith(fontSize: 14.0),
     labelLarge: const TextStyle().copyWith(
         fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.black),
     labelMedium: const TextStyle().copyWith(

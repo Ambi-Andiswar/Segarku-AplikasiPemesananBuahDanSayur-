@@ -12,6 +12,7 @@ class SSizes {
   static const double iconMd = 24.0;
   static const double iconLg = 32.0;
   static const double iconXl = 48.0;
+
   // Font sizes
   static const double fontSizeSm = 14.0;
   static const double fontSizeMd = 16.0;
@@ -22,6 +23,7 @@ class SSizes {
   static const double buttonRadius = 12.0;
   static const double buttonWidth = 120.0;
   static const double buttonElevation = 4.0;
+  static const double buttonspaceRightLeft = 20.0;
 
   // AppBar height
   static const double appBarHeight = 56.0;
@@ -31,6 +33,9 @@ class SSizes {
 
   // Default Spacing between sections
   static const double defaultSpace = 20.0;
+  static const double defaultSpaceDot = 27.0;
+  static const double titleSpaceTop = 32.0;
+  static const double titleSpaceLeftRight = 34.0;
   static const double spaceBtwItems = 16.0;
   static const double spaceBtwItems2 = 24.0;
   static const double spaceBtwSections = 8.0;

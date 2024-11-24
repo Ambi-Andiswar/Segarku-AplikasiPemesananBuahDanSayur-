@@ -8,6 +8,7 @@ import 'package:segarku/features/authentication/screens/welcome/welcome.dart';
 import 'package:segarku/features/authentication/screens/signup/verify_email.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
+import 'package:iconsax/iconsax.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -17,35 +18,49 @@ class SignUpScreen extends StatelessWidget {
     final dark = SHelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: SSizes.defaultSpace),
-          child: CircleAvatar(
-            radius: 50,
-            backgroundColor: dark ? Colors.black : SColors.primary,
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              iconSize: 25,
-              onPressed: () => Get.offAll(() => const WelcomeScreen()),
-              icon: const Icon(Icons.arrow_back, color: SColors.white),
-            ),
-          ),
-        ),
-        actions: const [],
-        centerTitle: true,
-        title: Text(
-          'Daftar',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: SSpacingStyle.paddingWithAppBarHeight,
           child: Column(
             children: [
+              // Back button
+              Row(
+                children: [
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      color: dark ? Colors.black : SColors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        color: SColors.blackSoap300,
+                        width: 1,
+                      ),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Get.to(() => const WelcomeScreen());
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        size: 16,
+                        color: dark ? SColors.white : SColors.blackSoap500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      STexts.signUp,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: SSizes.spaceBtwSections2),
               // Title & Subtitle
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,7 +163,10 @@ class SignUpScreen extends StatelessWidget {
                               borderSide:
                                   const BorderSide(color: SColors.primary),
                             ),
-                            suffixIcon: const Icon(Icons.visibility_off)),
+                            suffixIcon: Icon(Iconsax.eye_slash,
+                                color: dark
+                                    ? SColors.white
+                                    : SColors.blackSoap600)),
                       ),
                       const SizedBox(height: SSizes.spaceBtwInputFields / 2),
                       Align(
@@ -201,7 +219,9 @@ class SignUpScreen extends StatelessWidget {
                             borderSide:
                                 const BorderSide(color: SColors.primary),
                           ),
-                          suffixIcon: const Icon(Icons.visibility_off),
+                          suffixIcon: Icon(Iconsax.eye_slash,
+                              color:
+                                  dark ? SColors.white : SColors.blackSoap600),
                         ),
                       ),
                       const SizedBox(height: SSizes.spaceBtwInputFields / 2),
