@@ -15,4 +15,7 @@ class SImages {
 
   // Welcome Image
   static const String welcomeImage = "assets/images/onboarding/onboarding3.png";
+
+  // Settings
+  static const String settingsProfile = "assets/images/Settings/profile.png";
 }

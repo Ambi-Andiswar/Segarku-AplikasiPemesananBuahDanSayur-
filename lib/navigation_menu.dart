@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'features/shop/screens/home/home.dart';
+import 'features/personalization/screens/settings/settings.dart';
 import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/colors.dart';
 
@@ -45,6 +46,6 @@ class NavigationController extends GetxController {
     const HomeScreen(),
     Container(color: Colors.purple),
     Container(color: Colors.orange),
-    Container(color: Colors.blue)
+    const SettingsScreen(),
   ];
 }

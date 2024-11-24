@@ -93,6 +93,8 @@ class STexts {
   static const String privacyPolicy = "kebijakan Privasi Kami";
   static const String and = "serta";
 
+  // Settings
+  static const String settings = "Profil Saya";
   static const String newPassword = "Password Baru";
   static const String userName = "Nama Pengguna";
   static const String phoneNumber = "Nomor Telepon";
