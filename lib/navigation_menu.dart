@@ -4,6 +4,7 @@ import 'features/shop/screens/home/home.dart';
 import 'features/personalization/screens/settings/settings.dart';
 import 'package:segarku/utils/helpers/helper_functions.dart';
 import 'package:segarku/utils/constants/colors.dart';
+import 'package:iconsax/iconsax.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -24,13 +25,14 @@ class NavigationMenu extends StatelessWidget {
           backgroundColor: darkMode ? SColors.black : Colors.white,
           indicatorColor: darkMode
               ? SColors.white.withOpacity(0.1)
-              : SColors.black.withOpacity(0.1),
+              : SColors.green500.withOpacity(0.1),
           destinations: const [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Beranda'),
+            NavigationDestination(icon: Icon(Iconsax.home), label: 'Beranda'),
             NavigationDestination(
-                icon: Icon(Icons.shopping_cart), label: 'Keranjang'),
-            NavigationDestination(icon: Icon(Icons.history), label: 'Riwayat'),
-            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+                icon: Icon(Iconsax.shopping_cart), label: 'Keranjang'),
+            NavigationDestination(
+                icon: Icon(Iconsax.document), label: 'Riwayat'),
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),
       ),
@@ -48,4 +50,6 @@ class NavigationController extends GetxController {
     Container(color: Colors.orange),
     const SettingsScreen(),
   ];
+
+  final isSelected = false.obs;
 }

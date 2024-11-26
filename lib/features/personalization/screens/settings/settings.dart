@@ -70,6 +70,7 @@ class SettingsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     // Profile Image
+
                     Image.asset(
                       'assets/images/Settings/profile.png',
                       width: 80,

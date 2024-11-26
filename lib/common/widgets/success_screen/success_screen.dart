@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:segarku/utils/constants/size.dart';
 import 'package:get/get.dart';
 import 'package:segarku/features/authentication/screens/login/login.dart';

@@ -66,10 +66,6 @@ class STexts {
   static const String yourAccountIsReadySubTitle =
       "Silahkan masukkan password Anda untuk melanjutkan";
 
-  // Home
-  static const String homeAppbarTitle = "Selamat Berbelanja";
-  static const String homeAppbarSubTitle = "Selalu ada selalu fresh";
-
   // authentication Form Text
   static const String email = "Email";
   static const String emailButton = "Masukan email anda";
@@ -95,6 +91,12 @@ class STexts {
 
   // Settings
   static const String settings = "Profil Saya";
+
+  // Home
+  static const String homeAppbarTitle = "Hallo Afif 👋";
+  static const String homeAppbarSubTitle = "Selamat berbelanja";
+
+
   static const String newPassword = "Password Baru";
   static const String userName = "Nama Pengguna";
   static const String phoneNumber = "Nomor Telepon";

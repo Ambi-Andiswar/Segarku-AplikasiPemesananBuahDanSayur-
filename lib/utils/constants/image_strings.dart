@@ -16,6 +16,11 @@ class SImages {
   // Welcome Image
   static const String welcomeImage = "assets/images/onboarding/onboarding3.png";
 
+  // Home Banners
+  static const String homeBanner1 = "assets/images/banners/banner-1.png";
+  static const String homeBanner2 = "assets/images/banners/banner-2.png";
+  static const String homeBanner3 = "assets/images/banners/banner-3.png";
+
   // Settings
   static const String settingsProfile = "assets/images/Settings/profile.png";
 }
