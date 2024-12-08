@@ -5,10 +5,11 @@ import 'package:segarku/utils/constants/size.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'package:segarku/utils/constants/colors.dart';
 import 'package:segarku/features/authentication/screens/welcome/welcome.dart';
-import 'package:segarku/features/authentication/screens/signup/verify_email.dart';
 import 'package:get/get.dart';
 import 'package:flutter/gestures.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:segarku/features/authentication/controllers/signup_controller.dart';
+import 'package:segarku/utils/validators/validation.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -16,6 +17,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = SHelperFunctions.isDarkMode(context);
+    final controller = Get.put(SignupController());
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -82,6 +84,7 @@ class SignUpScreen extends StatelessWidget {
 
               // Form
               Form(
+                key: controller.signupFormKey,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: SSizes.spaceBtwSections),
@@ -102,6 +105,9 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: SSizes.spaceBtwInputFields / 2),
                       TextFormField(
+                        controller: controller.email,
+                        validator: (value) =>
+                            SValidator.validateEmptyText('email', value),
                         decoration: InputDecoration(
                           labelText: STexts.emailButton,
                           labelStyle: Theme.of(context).textTheme.bodyMedium,
@@ -142,6 +148,9 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: SSizes.spaceBtwInputFields / 2),
                       TextFormField(
+                        controller: controller.password,
+                        validator: (value) =>
+                            SValidator.validateEmptyText('password', value),
                         decoration: InputDecoration(
                             labelText: STexts.passwordButton,
                             labelStyle: Theme.of(context).textTheme.bodyMedium,
@@ -198,6 +207,9 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: SSizes.spaceBtwInputFields / 2),
                       TextFormField(
+                        controller: controller.confirmPassword,
+                        validator: (value) => SValidator.validateEmptyText(
+                            'confirmPassword', value),
                         decoration: InputDecoration(
                           labelText: STexts.confirmPasswordSubTitle,
                           labelStyle: Theme.of(context).textTheme.bodyMedium,
@@ -241,24 +253,26 @@ class SignUpScreen extends StatelessWidget {
 
                       // Sign In Button
                       SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                              onPressed: () =>
-                                  Get.to(() => const VerifyEmailScreen()),
-                              child: Text(
-                                STexts.register,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.normal,
-                                        color: SColors.white),
-                              ))),
-                      // Tambahkan Terms & Conditions Text
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () => controller.signup(),
+                          child: Text(
+                            STexts.register,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  color: SColors.white,
+                                ),
+                          ),
+                        ),
                       ),
 
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.1),
+
+                      // Terms & Conditions Text
                       Padding(
                         padding: const EdgeInsets.only(bottom: 20),
                         child: RichText(
@@ -274,12 +288,10 @@ class SignUpScreen extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: STexts.agreeToTerms,
-                                style: const TextStyle(
-                                  color: SColors.green500,
-                                ),
+                                style: const TextStyle(color: SColors.green500),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    // Tambahkan aksi ketika Terms & Conditions diklik
+                                    // Handle Terms & Conditions tap
                                   },
                               ),
                               const TextSpan(
@@ -288,12 +300,10 @@ class SignUpScreen extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: STexts.privacyPolicy,
-                                style: const TextStyle(
-                                  color: SColors.green500,
-                                ),
+                                style: const TextStyle(color: SColors.green500),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    // Tambahkan aksi ketika Privacy Policy diklik
+                                    // Handle Privacy Policy tap
                                   },
                               ),
                             ],
