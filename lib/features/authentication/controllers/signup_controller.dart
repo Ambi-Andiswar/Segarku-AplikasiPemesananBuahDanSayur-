@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:segarku/utils/popups/full_screen_loader.dart';
 import 'package:segarku/utils/constants/image_strings.dart';
 import 'package:segarku/utils/network/network_manager.dart';
+import 'package:segarku/utils/Loaders.dart';
 
 class SignupController extends GetxController {
   static SignupController get instance => Get.find();
@@ -18,12 +19,20 @@ class SignupController extends GetxController {
   Future<void> signup() async {
     try {
       // Start Loading
-      TFullscreenLoader.openLoadingDialog('', SImages.onBoardingImage1);
+      SFullscreenLoader.openLoadingDialog('', SImages.onBoardingImage1);
 
       // Check Internet Connectivity
-      final isConnected = await NetworkManager.instance.isconnected();
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        SFullscreenLoader.stoploading();
+        return;
+      }
 
       // Form Validation
+      if (!signupFormKey.currentState!.validate()) {
+        SFullscreenLoader.stoploading();
+        return;
+      }
       // Privacy Policy Check
       // Register user in the Firebase Authentication & Save user data in the Firebase
       // Save Authenticated user data in the Firebase Firestore
@@ -31,6 +40,7 @@ class SignupController extends GetxController {
       // Move to Verify Email Screen
     } catch (e) {
       // Show some Generic Error to the user
+      SLoaders.errorSnackBar(title: 'Oh Sanp!', message: e.toString());
     } finally {
       // Remove Loader
     }

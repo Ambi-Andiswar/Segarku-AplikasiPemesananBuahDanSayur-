@@ -1,7 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
-import '../utils/loaders/t_loaders.dart';
+import 'dart:async';
+import 'package:segarku/utils/Loaders.dart';
 
 /// Manages the network connectivity status and provides methods to check and handle connectivity changes.
 class NetworkManager extends GetxController {
@@ -32,15 +33,20 @@ class NetworkManager extends GetxController {
   Future<bool> isConnected() async {
     try {
       final result = await _connectivity.checkConnectivity();
-      return result != ConnectivityResult.none;
-    } catch (_) {
+      if (result == ConnectivityResult.none) {
+        return false;
+      } else {
+        return true;
+      }
+    } on PlatformException catch (_) {
       return false;
     }
   }
 
+  /// Dispose or close the active connectivity stream.
   @override
   void onClose() {
-    _connectivitySubscription.cancel();
     super.onClose();
+    _connectivitySubscription.cancel();
   }
 }
